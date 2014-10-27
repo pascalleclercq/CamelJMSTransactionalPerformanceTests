@@ -187,11 +187,11 @@ public class CamelActiveMQXAPerformanceTest extends CamelSpringTestSupport {
     public void testReadAndStoreXAAMQ() throws Exception {
         template.setDefaultEndpointUri("activemq:queue:test");
 
-        log.info("Creating " + counter + " messages.");
+        System.out.println("Creating " + counter + " messages.");
         for (int i = 0; i < counter; i++) {
             template.sendBody(PAYLOAD);
         }
-        log.info("Done creating messages.");
+        System.out.println("Done creating messages.");
 
         final long millis = System.currentTimeMillis();
         final CountDownLatch latch = new CountDownLatch(counter);
@@ -211,7 +211,7 @@ public class CamelActiveMQXAPerformanceTest extends CamelSpringTestSupport {
         });
 
         assertTrue(latch.await(5, TimeUnit.MINUTES));
-        log.info("testReadAndStoreXAAMQ consumed " + counter + " messages in " + (System.currentTimeMillis() - millis) + " ms.");
+        System.out.println("testReadAndStoreXAAMQ consumed " + counter + " messages in " + (System.currentTimeMillis() - millis) + " ms.");
     }
 
     @Override

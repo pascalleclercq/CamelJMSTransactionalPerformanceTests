@@ -145,11 +145,11 @@ public class NativeAtomikosPerfTest extends CamelSpringTestSupport {
     public void testOptimizedAtomikosReceiverSender() throws JMSException, InterruptedException {
         template.setDefaultEndpointUri("activemq:queue:test");
 
-        log.info("Creating " + counter + " messages.");
+        System.out.println("Creating " + counter + " messages.");
         for (int i = 0; i < counter; i++) {
             template.sendBody(PAYLOAD);
         }
-        log.info("Done creating messages.");
+        System.out.println("Done creating messages.");
 
         //create a queues for ActiveMQ
         final ActiveMQQueue sourceQueue = new ActiveMQQueue();
@@ -201,7 +201,7 @@ public class NativeAtomikosPerfTest extends CamelSpringTestSupport {
         final long millis = System.currentTimeMillis();
         container.start();
         assertTrue(latch.await(5, TimeUnit.MINUTES));
-        log.info("testOptimizedAtomikosReceiverSender consumed " + counter + " messages in " + (System.currentTimeMillis() - millis) + " ms.");
+        System.out.println("testOptimizedAtomikosReceiverSender consumed " + counter + " messages in " + (System.currentTimeMillis() - millis) + " ms.");
 
         // when finished: close the sender session
         senderSession.close();

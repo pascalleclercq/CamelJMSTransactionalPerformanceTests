@@ -143,11 +143,11 @@ public class CamelActiveMQConsumerPerformanceTest extends CamelTestSupport {
     public void testOnlyReadAMQ() throws Exception {
         template.setDefaultEndpointUri("activemq:queue:test");
 
-        log.info("Creating " + counter + " messages.");
+        System.out.println("Creating " + counter + " messages.");
         for (int i = 0; i < counter; i++) {
             template.sendBody(PAYLOAD);
         }
-        log.info("Done creating messages.");
+        System.out.println("Done creating messages.");
 
         final long millis = System.currentTimeMillis();
         final CountDownLatch latch = new CountDownLatch(counter);
@@ -166,18 +166,18 @@ public class CamelActiveMQConsumerPerformanceTest extends CamelTestSupport {
         });
 
         assertTrue(latch.await(1, TimeUnit.MINUTES));
-        log.info("testOnlyReadAMQ consumed " + counter + " messages in " + (System.currentTimeMillis() - millis) + " ms.");
+        System.out.println("testOnlyReadAMQ consumed " + counter + " messages in " + (System.currentTimeMillis() - millis) + " ms.");
     }
 
     @Test
     public void testConcurrentReadAMQ() throws Exception {
         template.setDefaultEndpointUri("activemq:queue:test");
 
-        log.info("Creating " + counter + " messages.");
+        System.out.println("Creating " + counter + " messages.");
         for (int i = 0; i < counter; i++) {
             template.sendBody(PAYLOAD);
         }
-        log.info("Done creating messages.");
+        System.out.println("Done creating messages.");
 
         final long millis = System.currentTimeMillis();
         final CountDownLatch latch = new CountDownLatch(counter);
@@ -196,18 +196,18 @@ public class CamelActiveMQConsumerPerformanceTest extends CamelTestSupport {
         });
 
         assertTrue(latch.await(1, TimeUnit.MINUTES));
-        log.info("testConcurrentReadAMQ consumed " + counter + " messages in " + (System.currentTimeMillis() - millis) + " ms.");
+        System.out.println("testConcurrentReadAMQ consumed " + counter + " messages in " + (System.currentTimeMillis() - millis) + " ms.");
     }
 
     @Test
     public void testReadAndStoreAMQ() throws Exception {
         template.setDefaultEndpointUri("activemq:queue:test");
 
-        log.info("Creating " + counter + " messages.");
+        System.out.println("Creating " + counter + " messages.");
         for (int i = 0; i < counter; i++) {
             template.sendBody(PAYLOAD);
         }
-        log.info("Done creating messages.");
+        System.out.println("Done creating messages.");
 
         final long millis = System.currentTimeMillis();
         final CountDownLatch latch = new CountDownLatch(counter);
@@ -227,18 +227,18 @@ public class CamelActiveMQConsumerPerformanceTest extends CamelTestSupport {
         });
 
         assertTrue(latch.await(1, TimeUnit.MINUTES));
-        log.info("testReadAndStoreAMQ consumed " + counter + " messages in " + (System.currentTimeMillis() - millis) + " ms.");
+        System.out.println("testReadAndStoreAMQ consumed " + counter + " messages in " + (System.currentTimeMillis() - millis) + " ms.");
     }
 
     @Test
     public void testReadAndStoreTransactionalAMQ() throws Exception {
         template.setDefaultEndpointUri("activemq:queue:test");
 
-        log.info("Creating " + counter + " messages.");
+        System.out.println("Creating " + counter + " messages.");
         for (int i = 0; i < counter; i++) {
             template.sendBody(PAYLOAD);
         }
-        log.info("Done creating messages.");
+        System.out.println("Done creating messages.");
 
         final long millis = System.currentTimeMillis();
         final CountDownLatch latch = new CountDownLatch(counter);
@@ -258,7 +258,7 @@ public class CamelActiveMQConsumerPerformanceTest extends CamelTestSupport {
         });
 
         assertTrue(latch.await(1, TimeUnit.MINUTES));
-        log.info("testReadAndStoreTransactionalAMQ consumed " + counter + " messages in " + (System.currentTimeMillis() - millis) + " ms.");
+        System.out.println("testReadAndStoreTransactionalAMQ consumed " + counter + " messages in " + (System.currentTimeMillis() - millis) + " ms.");
     }
 
     @Override
