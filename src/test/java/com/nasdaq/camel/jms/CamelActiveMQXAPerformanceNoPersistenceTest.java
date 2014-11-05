@@ -113,6 +113,7 @@ public class CamelActiveMQXAPerformanceNoPersistenceTest extends CamelSpringTest
         public UserTransactionManager getTransactionManager() {
             final UserTransactionManager userTransactionManager = new UserTransactionManager();
             userTransactionManager.setForceShutdown(false);
+            
             return userTransactionManager;
         }
 
@@ -120,6 +121,7 @@ public class CamelActiveMQXAPerformanceNoPersistenceTest extends CamelSpringTest
         public UserTransaction getUserTransaction() throws SystemException {
             final UserTransactionImp userTransactionImp = new UserTransactionImp();
             userTransactionImp.setTransactionTimeout(2000);
+            
             return userTransactionImp;
         }
 
