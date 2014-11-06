@@ -109,7 +109,7 @@
 			<forkMode>always</forkMode>
 			<workingDirectory>target</workingDirectory>
 			<runOrder>alphabetical</runOrder>
-			<argLine>-Xmx1024M</argLine>
+			<argLine>-Xms1024m -Xmx4096m -XX:PermSize=1024m</argLine>
 		</configuration>
 	</plugin>
         </plugins>
