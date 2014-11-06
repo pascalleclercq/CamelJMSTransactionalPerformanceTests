@@ -14,3 +14,5 @@ hs_err_pid*
 /activemq-data
 /target
 /*.log
+/.classpath
+/.project

@@ -109,7 +109,7 @@
 			<forkMode>always</forkMode>
 			<workingDirectory>target</workingDirectory>
 			<runOrder>alphabetical</runOrder>
-			<argLine>-Xmx421M</argLine>
+			<argLine>-Xmx1024M</argLine>
 		</configuration>
 	</plugin>
         </plugins>
